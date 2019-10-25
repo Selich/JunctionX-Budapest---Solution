@@ -54,5 +54,39 @@ def get_data():  #gtin, tpnc1, tpnc2, catid):
     return jsonify(data_final)
 
 
+
+##########################33
+
+
+@app.route('/signup', methods=['POST', 'GET'])
+def signup():
+    form = request.form
+    name = form['name']
+    password = form['password']
+    return '200'
+
+
+@app.route('/login', methods=['POST', 'GET'])
+def login():
+    if request.method == 'POST':
+        user = request.form['name']  # name sa frontenda
+        return '200'
+    else:
+        user = request.args.get('name')
+        return '222'
+
+
+@app.route('/register')
+def register():
+    return '200'
+
+
+@app.route('/update')
+def update():
+    return '200'
+
+if __name__ == "__main__":
+    app.run()
+
 if __name__ == "__main__":
     app.run()
