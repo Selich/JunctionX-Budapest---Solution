@@ -68,25 +68,22 @@ def signup():
 
 @app.route('/login', methods=['POST', 'GET'])
 def login():
-    if request.method == 'POST':
-        user = request.form['name']  # name sa frontenda
-        return '200'
-    else:
-        user = request.args.get('name')
-        return '222'
+    # if request.method == 'POST':
+        # user = request.form['name']  # name sa frontenda
+        # return '200'
+    # else:
+        # user = request.args.get('name')
+    return '200'
 
 
-@app.route('/register')
+@app.route('/register', methods=['POST', 'GET'])
 def register():
     return '200'
 
 
-@app.route('/update')
+@app.route('/update', methods=['POST', 'GET'])
 def update():
     return '200'
-
-if __name__ == "__main__":
-    app.run()
 
 if __name__ == "__main__":
     app.run()
