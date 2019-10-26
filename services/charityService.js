@@ -11,7 +11,8 @@ mongoClient.connect("mongodb://mongo-db-junctionx:RHLKCcwNYPgTOEIdlSVxri6IuGX7Dm
 
 
 function get(req, res) {
-    const back = Charity.find().all()
+    const back = Charity.find({}).all()
+    res.json(back)
     back
         .exec()
         .then(charity => {
@@ -24,11 +25,8 @@ function get(req, res) {
 }
 
 function add(req, res) {
-    Charity.update(req.body); // .insert(req.body, function(err, result) {
-    // if (err)
-    // res.send('error');
-    // else
-    // res.send("succ");)
+    const back = Charity.find({}).all()
+    back.update(req.body)
 };
 // res.send('ok')
 

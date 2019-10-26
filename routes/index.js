@@ -22,6 +22,16 @@ router.post('/products', function(req, res, next) {
     // productService.get(req,res)
 });
 
+router.get('/charity', function(req, res) {
+    charityService.get(req.res)
+});
+
+router.post('/charity', function(req, res) {
+    charityService.add(req.res)
+});
+
+
+
 // getting the closest tesco store
 
 router.get('/shops', function(req, res, next) {
@@ -37,6 +47,7 @@ router.get('/shops', function(req, res, next) {
         res.send(body)
     })
 });
+
 
 router.post('/saveCharity', function(req, res, next) {
     // console.log(req.res)
