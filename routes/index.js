@@ -8,6 +8,7 @@ router.get('/', function(req, res, next) {
 
 /* GET home page. */
 router.post('/barcode', function(req, res, next) {
+  console.log(JSON.parse(res))
   res.render('index', { title: JSON.parse(res) });
 });
 

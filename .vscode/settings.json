@@ -30,6 +30,5 @@
         "venv.bak{,/**}",
         ".vscode{,/**}"
     ],
-    "appService.defaultWebAppToDeploy": "/subscriptions/e40ba945-e67c-46ce-848d-83fd79545da3/resourceGroups/FlaskApp/providers/Microsoft.Web/sites/FlaskAppTesco",
     "appService.deploySubpath": ""
 }
