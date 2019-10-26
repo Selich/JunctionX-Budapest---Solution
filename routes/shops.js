@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var request = require('request');
 
 // getting the closest tesco store
 router.get('/shops', function(req, res, next) {
