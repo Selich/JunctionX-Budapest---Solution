@@ -1,0 +1,68 @@
+{
+    "charities": [{
+            "name": "foodbank_budapest",
+            "adress": "budapest",
+            "has_freezer": false,
+            "prefers": [
+                "pastry",
+                "bread",
+                "fruit"
+            ],
+            "accepts_damaged_goods": false,
+            "accepts_non_food_items": false,
+            "geolocation": {
+                "long": 19.0799,
+                "lat": 47.49321
+            }
+        },
+
+        {
+            "name": "fbank_gornjacrnja",
+            "adress": "budapest",
+            "has_freezer": false,
+            "prefers": [
+                "eggs",
+                "fish",
+                "salads"
+            ],
+            "accepts_damaged_goods": false,
+            "accepts_non_food_items": true,
+            "geolocation": {
+                "long": 19.0799,
+                "lat": 47.49321
+            }
+        }, {
+            "name": "neka_3",
+            "adress": "budapest",
+            "has_freezer": false,
+            "prefers": [
+                "salads",
+                "chilled",
+                "vegetables"
+            ],
+            "accepts_damaged_goods": true,
+            "accepts_non_food_items": true,
+
+            "geolocation": {
+                "long": 19.0799,
+                "lat": 47.49321
+            }
+        },
+
+        {
+            "name": "fudbenk_donations",
+            "adress": "budapest",
+            "has_freezer": false,
+            "prefers": [
+                "eggs",
+                "raw_meat"
+            ],
+            "accepts_damaged_goods": false,
+            "accepts_non_food_items": false,
+            "geolocation": {
+                "long": 19.0799,
+                "lat": 47.49321
+            }
+        }
+    ]
+}
