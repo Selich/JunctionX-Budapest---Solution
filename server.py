@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, make_response
+from flask import Flask, jsonify, make_response, request
 from flask_headers import headers
 import requests
 import json
@@ -8,7 +8,6 @@ app = Flask(__name__)
 
 
 def random_vars():
-
     gtin = str(random.randint(4548735003446, 9999999999999))
     tpnc1 = str(random.randint(454873500, 999999999))
     tpnc2 = str(random.randint(454873500, 999999999))
@@ -55,7 +54,35 @@ def get_data():  #gtin, tpnc1, tpnc2, catid):
 
 
 
-##########################33
+##########################################
+@app.route('/scan', methods=['POST'])
+def scan():
+    headers = {
+        'Ocp-Apim-Subscription-Key': 'd0b50598ab85402a9238cb2528924e3f',
+    }
+    form = request.form
+    bar_code = form['bar_code']
+    label = form['label']
+    store = form['store']
+
+    product_link = 'https://dev.tescolabs.com/product/?tpnc=' + bar_code
+    response = requests.get(url=product_link, headers=headers)
+    product_data = response.json()
+
+    if product_data['products'][0]['productCharacteristics']['isFood']:
+        if label == 'Use By':
+            if product_data['products'][0]['productCharacteristics']['storageType'] == 'Chilled':
+                return 'save to database'
+            else:
+                return 'ne moze da se koristi'
+        if label == "Best Before" or label == "Display Until":
+            return 'save to database'
+        else:
+            return 'ne moze da se koristi'
+    else:
+        return 'its not food'
+
+    return jsonify(product_data)
 
 
 @app.route('/signup', methods=['POST', 'GET'])
