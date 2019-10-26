@@ -72,5 +72,5 @@ function usedByOrBestBefore(str){
             break;
         }
     }
-    return "Label not found"
+    return "Label" 
 }

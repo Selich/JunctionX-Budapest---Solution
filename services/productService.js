@@ -22,9 +22,19 @@ function get(req,res) {
     })
 }
 
-
+function add(req,res){
+    
+   client.collection('products').insert(req.body, function (err, result) {
+       if (err)
+          res.send('Error');
+       else
+         res.send('Success');
+   });
+    res.send("OK")
+}
 
 module.exports = {
     get,
+    add
 }
 

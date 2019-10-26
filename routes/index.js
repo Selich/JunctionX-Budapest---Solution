@@ -15,10 +15,16 @@ router.get('/', function(req, res, next) {
 //   productService.newProduct(req,res)
 // });
 
-router.post('/products', function(req, res, next) {
-  console.log(res)
+router.get('/products', function(req, res, next) {
+  console.log(res.body)
 
-  // productService.get(req,res)
+  productService.get(req,res)
 });
+
+router.post('/barcode', function(req, res, next) {
+  productService.add(req,res)
+});
+
+
 
 module.exports = router;
