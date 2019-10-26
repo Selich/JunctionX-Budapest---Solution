@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 
 /* GET home page. */
 router.post('/barcode', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: JSON.parse(res) });
 });
 
 module.exports = router;
