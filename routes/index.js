@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 
+var productService = require("../services/productService")
+
 
 data = ""
 /* GET home page. */
@@ -10,8 +12,11 @@ router.get('/', function(req, res, next) {
 
 /* GET home page. */
 router.post('/barcode', function(req, res, next) {
-  console.log(JSON.parse(res))
-  data = JSON.parse(res)
+  productService.newProduct(req,res)
+});
+
+router.post('/products', function(req, res, next) {
+  productService.get(req,res)
 });
 
 module.exports = router;
