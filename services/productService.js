@@ -22,17 +22,9 @@ function get(req,res) {
     })
 }
 
-function newProduct(req, res){
-    const product = new Product(req.body)
-
-    product.save().then(() => {
-        res.json(product)
-    }).catch(err => { res.status(500).send(err) })
-}
 
 
 module.exports = {
     get,
-    newProduct
 }
 
