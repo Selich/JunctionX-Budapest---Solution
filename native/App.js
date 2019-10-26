@@ -18,13 +18,11 @@ class App extends Component {
   }
 
   onBarCodeRead(scanResult) {
-    console.warn(scanResult.type);
-    console.warn(scanResult.data);
     if (scanResult.data != null) {
-	if (!this.barcodeCodes.includes(scanResult.data)) {
-	  this.barcodeCodes.push(scanResult.data);
-	  console.warn('onBarCodeRead call');
-	}
+    	  if (!this.barcodeCodes.includes(scanResult.data)) {
+	        this.barcodeCodes.push(scanResult.data);
+	         console.warn('onBarCodeRead call');
+	      }
     }
     return;
   }
@@ -33,7 +31,6 @@ class App extends Component {
     if (this.camera) {
       const options = { quality: 0.5, base64: true };
       const data = await this.camera.takePictureAsync(options);
-      console.log(data.uri);
     }
   }
 
@@ -75,7 +72,7 @@ class App extends Component {
 	</View>
 	<View style={[styles.overlay, styles.bottomOverlay]}>
           <Button
-            onPress={() => { this.handleClick() }}
+            onPress={this.handleClick}
             style={styles.enterBarcodeManualButton}
             title="Enter Barcode"
            />
@@ -86,7 +83,7 @@ class App extends Component {
   handleClick(){
     var barcodes = this.barcodeCodes
    
-   fetch("https://junctionx.azurewebsites.net/barcode", {
+   fetch("/barcode", {
       method: "POST",
       body:  JSON.stringify("hello")
    })

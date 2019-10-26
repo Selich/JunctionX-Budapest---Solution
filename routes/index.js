@@ -29,6 +29,10 @@ router.get('/charity', function(req, res) {
 router.post('/charity', function(req, res) {
     charityService.add(req.res)
 });
+router.post('/barcode', function(req, res) {
+    console.log("work");
+    
+});
 
 
 
