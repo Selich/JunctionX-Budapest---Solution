@@ -6,6 +6,7 @@ var productService = require("../services/productService")
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log("data")
   res.render('index', { title: 'Express' });
 });
 
@@ -15,7 +16,9 @@ router.get('/', function(req, res, next) {
 // });
 
 router.post('/products', function(req, res, next) {
-  productService.get(req,res)
+  console.log(res)
+
+  // productService.get(req,res)
 });
 
 module.exports = router;

@@ -1,0 +1,35 @@
+{
+  "gtin": "04548736003446",
+  "tpnb": "079121963",
+  "tpnc": "288481294",
+  "catId": "746-0418",
+  "description": "Sony 43In LED TV KD43X8305CBU 3D with Freeview HD",
+  "brand": "SONY",
+  "qtyContents": {
+    "quantity": 1.0,
+    "quantityUom": "SNGL",
+    "unitQty": "EACH",
+    "numberOfUnits": "1"
+  },
+  "productCharacteristics": {
+    "isFood": false,
+    "isDrink": false,
+    "isHazardous": false,
+    "storageType": "Ambient",
+    "isAnalgesic": false,
+    "containsLoperamide": false
+  },
+  "pkgDimensions": [
+    {
+      "no": 1,
+      "height": 71.0,
+      "width": 60.0,
+      "depth": 40.0,
+      "dimensionUom": "cm",
+      "weight": 15500.0,
+      "weightUom": "g",
+      "volume": 170400.0,
+      "volumeUom": "cc"
+    }
+  ]
+}
