@@ -40,15 +40,16 @@ router.get('/shops', function(req, res, next) {
 });
 
 router.post('/saveCharity', function(req, res, next) {
-    console.log(req.res)
+    // console.log(req.res)
     charityService.add(req.res)
     res.send('ddd')
+
 });
 
 router.get('/getCharity', function(req, res, next) {
-    console.log(req)
-    res.send('sssd')
-    charityService.get(req.res)
+    // console.log(req)
+    res.send(
+        charityService.get(req.res))
 });
 
 module.exports = router;

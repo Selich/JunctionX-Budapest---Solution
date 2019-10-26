@@ -24,15 +24,14 @@ function get(req, res) {
 }
 
 function add(req, res) {
-    client.collection('charity').insert(req.body, function(err, result) {
-        if (err)
-            res.send('error');
-        else
-            res.send("succ");
-    });
-    res.send('ok')
+    Charity.update(req.body); // .insert(req.body, function(err, result) {
+    // if (err)
+    // res.send('error');
+    // else
+    // res.send("succ");)
+};
+// res.send('ok')
 
-}
 
 module.exports = {
     get,
