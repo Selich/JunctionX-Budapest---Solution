@@ -4,11 +4,11 @@ const Schema = mongoose.Schema;
 
 const productSchema = new Schema({
     gtin: 
-    { type: Number , required: true, unique: true},
+    { type: String , required: true},
     tpnb: 
-    { type: Number , required: true, unique: true},
+    { type: String , required: true},
     tpnc:
-    { type: Number , required: true, unique: true},
+    { type: String , required: true},
     catId: 
     { type: String , required: true},
     description: String,
