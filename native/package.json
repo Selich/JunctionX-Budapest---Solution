@@ -9,9 +9,13 @@
   },
   "dependencies": {
     "expo": "^35.0.0",
+    "expo-permissions": "~7.0.0",
     "react": "16.8.3",
     "react-dom": "16.8.3",
     "react-native": "https://github.com/expo/react-native/archive/sdk-35.0.0.tar.gz",
+    "react-native-barcode-scanner-google": "git+https://github.com/ekreutz/react-native-barcode-scanner-google.git#v1.3.0",
+    "react-native-camera": "^3.8.0",
+    "react-native-navigation": "^2.27.9",
     "react-native-web": "^0.11.7"
   },
   "devDependencies": {
