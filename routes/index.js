@@ -6,18 +6,10 @@ var productService = require("../services/productService")
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  console.log("data")
-  res.render('index', { title: 'Express' });
+  productService.get(req,res)
 });
 
-/* GET home page. */
-// router.post('/barcode', function(req, res, next) {
-//   productService.newProduct(req,res)
-// });
-
 router.get('/products', function(req, res, next) {
-  console.log(res.body)
-
   productService.get(req,res)
 });
 
