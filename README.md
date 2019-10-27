@@ -18,12 +18,18 @@ You could open the server that is running on the Microsoft Azure platform. [ htt
         npm install
         npm start 
 
+4.  Run the Barcode Scanner mobile app:
 
-4. Enjoy!
+        cd native
+		npm i
+		expo start
+
+
+5. Enjoy!
 
 
 #### Languaged used:
-   All written in Javascript. React on the front-end and Nodejs in the back-end.
+   All written in Javascript. React on the front-end, Nodejs in the back-end and React-Native for native development.
     
 #### Technologies used:
   Microsoft Azure and Cosmos DB for hosting the server and NoSQL database (MongoDB).
