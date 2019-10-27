@@ -1,0 +1,230 @@
+mport React, { useState, useEffect } from "react";
+import FloatingButton from "./FloatingButton";
+import Sliders from "./Sliders";
+import axios from "axios";
+import Map from '../components/Map'
+import "../App.css";
+
+import {
+  Paper,
+  Typography,
+  Slider,
+  Input,
+  FormControlLabel,
+  InputAdornment,
+  Switch,
+  TextField,
+  FormControl,
+  InputLabel,
+  Select,
+  MenuItem,
+  FormGroup,
+  Grid,
+  Checkbox
+} from "@material-ui/core";
+
+import Card from "./Card";
+import { red } from "@material-ui/core/colors";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(theme => ({
+  table:{
+    minHeight: "800px",
+    position: "absolute"
+
+  },
+  root: {
+    width: "100%",
+    position: "absolute",
+    background: "linear-gradient(to top, #ece9e6, #ffffff)",
+    height: "20px",
+    bottom: 70
+  },
+  outer: {
+    flexFrow: 1,
+    padding: 20
+  },
+  card: {
+    padding: theme.spacing(2)
+  },
+  media: {
+    height: 0,
+    paddingTop: "56.25%" // 16:9
+  },
+  expandOpen: {
+    transform: "rotate(180deg)"
+  },
+  avatar: {
+    backgroundColor: red[500],
+    width: 80,
+    height: 50,
+    fontSize: 12
+  },
+  smallIcon: {
+    fontSize: 15,
+    paddingRight: 3
+  },
+  pullRight: {
+    paddingLeft: 50,
+    float: "right"
+  },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120
+  },
+  selectEmpty: {
+    marginTop: theme.spacing(8)
+  },
+  dense: {
+    marginTop: 19
+  }
+}));
+
+function Table() {
+  const classes = useStyles();
+  const [value, setValue] = useState();
+  const [hidde, setHide] = useState(true);
+  const [groceries, setGroceries] = useState([]);
+  const [shops, setShops] = useState([]);
+  const [data, setData] = useState([]);
+  const [coords, setCoords] = useState({ latitude: 47.5, longitude: 19});
+
+  useEffect(() => {
+    const headers = { headers: { 'Ocp-Apim-Subscription-Key': 'd0b50598ab85402a9238cb2528924e3f' } }
+    axios.get("https://dev.tescolabs.com/locations/search?sort=near:\"21,46\"", headers)
+      .then(res => {
+        let data = res.data.results
+        let arr = []
+        data.forEach(row => arr.push(row))
+        setShops(arr)
+      })
+      .catch(err => alert(err));
+  }, []);
+  const showItems = () => {
+
+    setHide(!hidde);
+  };
+
+  useEffect(() => {alert(coords.latitude)}, [value,coords]);
+
+
+  useEffect(() => {
+    setData([
+      {
+        id: 1,
+        name: "Bread",
+        distance: 89,
+        frozen: true,
+        inventory: {
+          bread: 1,
+          eggs: 3
+        }
+      },
+      {
+        id: 1,
+        name: "Eggs",
+        distance: 10,
+        frozen: true,
+        inventory: {
+          bread: 1,
+          eggs: 3
+        }
+      },
+      {
+        id: 1,
+        name: "Ujvidek",
+        distance: 100,
+        frozen: false,
+        inventory: {
+          bread: 1,
+          eggs: 3
+        }
+      },
+      {
+        id: 1,
+        name: "Ujvidek",
+        distance: 30,
+        frozen: false,
+        inventory: {
+          bread: 1,
+          eggs: 3
+        }
+      }
+    ]);
+  }, []);
+
+  const handleChange = name => event => {
+    setData({ ...data, [name]: event.target.value });
+  };
+  const handleClick = e => {
+
+     let lat =  e.target.value.lat
+     alert(lat)
+     let long =  e.target.long
+     setCoords({lat,long })
+
+  }
+
+  return (
+    <div className="table">
+      <br></br>
+      <br></br>
+      <br></br>
+
+      <Grid container>
+        <Grid item lg={8}>
+          <Grid container spacing={0}>
+             <Grid item xs={5} sm={5} lg={3} 
+             long={24.2}
+             lat={24.2}
+             onClick={handleClick}> 
+                <Card className="card" data={data}/> 
+             </Grid>
+             <Grid item xs={5} sm={5} lg={3} 
+             long={24.2}
+             lat={24.2}
+             onClick={handleClick}> 
+                <Card className="card" data={data}/> 
+             </Grid>
+             <Grid item xs={5} sm={5} lg={3} 
+             long={24.2}
+             lat={24.2}
+             onClick={handleClick}> 
+                <Card className="card" data={data}/> 
+             </Grid>
+             <Grid item xs={5} sm={5} lg={3} 
+             long={24.2}
+             lat={24.2}
+             onClick={handleClick}> 
+                <Card className="card" data={data}/> 
+             </Grid>
+            </Grid>
+        </Grid>
+        <Grid item xs={12} lg={4}>
+            <Map coords={coords}></Map>
+        </Grid>
+
+     </Grid>
+
+     <div className="slider">
+      <Typography  id="discrete-slider" gutterBottom>
+        Distance
+      </Typography>
+      <Slider
+        defaultValue={30}
+        aria-labelledby="discrete-slider"
+        valueLabelDisplay="auto"
+        value={value}
+        onChangeCommitted={e => setValue(Number(e.target.textContent))}
+        step={100}
+        marks
+        min={10}
+        max={6110}
+      />
+      </div>
+      <FloatingButton hide={showItems}></FloatingButton>
+    </div>
+  );
+}
+
+export default Table;
