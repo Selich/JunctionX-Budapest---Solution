@@ -14,7 +14,7 @@ You could open the server that is running on the Microsoft Azure platform. [ htt
          
 3.  Run the front-end:
 
-        cd client
+        cd react
         npm install
         npm start 
 
